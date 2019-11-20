@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="并行复制," />
 
 
 
@@ -88,11 +88,15 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="一只阿布啾">
-<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;archives&#x2F;2019&#x2F;index.html">
+<meta name="description" content="并行复制并行复制的流程group commit的过程： binlog prepare InnoDB prepare binlog commit(ordered commit)--3.1 Stage #1: flushing transactions to binary log --3.2 Stage #2: Syncing binary log file to disk --3.3 Stage #">
+<meta name="keywords" content="并行复制">
+<meta property="og:type" content="article">
+<meta property="og:title" content="并行复制">
+<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;2019&#x2F;11&#x2F;20&#x2F;%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6&#x2F;index.html">
 <meta property="og:site_name" content="一只阿布啾">
+<meta property="og:description" content="并行复制并行复制的流程group commit的过程： binlog prepare InnoDB prepare binlog commit(ordered commit)--3.1 Stage #1: flushing transactions to binary log --3.2 Stage #2: Syncing binary log file to disk --3.3 Stage #">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-11-20T12:02:18.642Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -123,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://boringsnail.github.io/archives/2019/"/>
+  <link rel="canonical" href="https://boringsnail.github.io/2019/11/20/并行复制/"/>
 
 
 
 
 
-  <title>归档 | 一只阿布啾</title>
+  <title>并行复制 | 一只阿布啾</title>
   
 
 
@@ -148,7 +152,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -306,148 +310,226 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://boringsnail.github.io/2019/11/20/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="boringsnail">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/afei.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="一只阿布啾">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">并行复制</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T19:57:06+08:00">
+                2019-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/MySQL-%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index">
+                    <span itemprop="name">MySQL 数据库</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/20/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/" itemprop="url">
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>次
+            </span>
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">并行复制</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  516 字
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-20T19:57:06+08:00"
-              content="2019-11-20" >
-          11-20
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  2 分钟
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/20/git-%E6%89%8B%E5%86%8C/" itemprop="url">
-              
-                <span itemprop="name">git 手册</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-20T15:16:35+08:00"
-              content="2019-11-20" >
-          11-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
+      
+        <h1 id="并行复制"><a href="#并行复制" class="headerlink" title="并行复制"></a>并行复制</h1><h2 id="并行复制的流程"><a href="#并行复制的流程" class="headerlink" title="并行复制的流程"></a>并行复制的流程</h2><h3 id="group-commit的过程："><a href="#group-commit的过程：" class="headerlink" title="group commit的过程："></a>group commit的过程：</h3><ol>
+<li>binlog prepare</li>
+<li>InnoDB prepare</li>
+<li>binlog commit(ordered commit)<pre><code>--3.1 Stage #1: flushing transactions to binary log
+--3.2 Stage #2: Syncing binary log file to disk
+--3.3 Stage #3: Commit all transactions in order.</code></pre></li>
+<li>InnoDB commit<h4 id="ordered-commit-的过程"><a href="#ordered-commit-的过程" class="headerlink" title="ordered commit 的过程"></a>ordered commit 的过程</h4></li>
+<li>由leader线程帮助FLUSH队列中的线程完成flush binlog操作，</li>
+<li>由leader线程帮助SYNC队列中的线程完成sync binlog操作，</li>
+</ol>
+<p>为了表示主库并行度，在binlog row event增加了如下的标识：</p>
+<figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#<span class="number">160807</span> <span class="number">15</span>:<span class="number">48</span>:<span class="number">10</span> server id <span class="number">100</span>  end_log_pos <span class="number">739</span> <span class="symbol">CRC32</span> <span class="number">0x2237b2ef</span>        <span class="symbol">GTID</span>    last_committed=<span class="number">0</span>        sequence_number=<span class="number">3</span></span><br><span class="line"><span class="symbol">SET</span> @@<span class="symbol">SESSION</span>.<span class="symbol">GTID_NEXT</span>= <span class="string">'8108dc48-47de-11e6-8690-a0d3c1f20ae4:3'</span><span class="comment">/*!*/</span>;</span><br></pre></td></tr></table></figure>
 
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/11/15/hello-world/" itemprop="url">
-              
-                <span itemprop="name">Hello World</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2019-11-15T20:12:12+08:00"
-              content="2019-11-15" >
-          11-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+<h2 id="last-committed-amp-amp-sequence-number"><a href="#last-committed-amp-amp-sequence-number" class="headerlink" title="last_committed&amp;&amp;sequence_number"></a>last_committed&amp;&amp;sequence_number</h2><h3 id="1-sequence-number"><a href="#1-sequence-number" class="headerlink" title="1. sequence_number"></a>1. sequence_number</h3><p>事务中的sequence_number是一个全局有序递增的数字，每个事务递增1，来源mysql_bin_log.tranaction_counter.step()<br>和gtid一对一的关系，即在flush阶段，和gtid生成的时机一致</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">binlog_cache_data::flush</span><br><span class="line">&#123;   </span><br><span class="line">     <span class="keyword">if</span> (flags.finalized) &#123;</span><br><span class="line">       Transaction_ctx *trn_ctx= thd-&gt;get_transaction();</span><br><span class="line">       trn_ctx-&gt;sequence_number= mysql_bin_log.transaction_counter.step();</span><br><span class="line">     &#125;</span><br><span class="line">     .......</span><br><span class="line">     mysql_bin_log.write_gtid(thd, <span class="keyword">this</span>, &amp;writer)))</span><br><span class="line">     mysql_bin_log.write_cache(thd, <span class="keyword">this</span>, &amp;writer);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-last-committed"><a href="#2-last-committed" class="headerlink" title="2. last_committed"></a>2. last_committed</h3><p>事务中last_committed表示在这个commit下的事务，都是可以并行的，即没有冲突， Transaction_ctx中的last_committed在每个语句prepared的时候进行初始化，来源mysql_bin_log.max_committed_transaction</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">binlog_prepare</span><span class="params">(handlerton *hton, THD *thd, <span class="keyword">bool</span> all)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ......</span><br><span class="line">    Logical_clock&amp; clock= mysql_bin_log.max_committed_transaction;</span><br><span class="line">    thd-&gt;get_transaction()-&gt;</span><br><span class="line">      store_commit_parent(clock.get_timestamp());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>/ * Binlog特定的逻辑时间戳。<em>/<br>/</em><br>存储事务的提交父序列号。<br>该值使用“父”事务指定此事务依赖项。<br>当事务将要在binlog中提交到最后提交的事务的sequence_number的值时，将分配该成员。<br>无论是否轮换二进制日志还是以多个部分记录事务，这个和last_committed数字都会保持不变。<br> 但是，二进制日志的记录器可以根据其规范进行转换。<br> */</p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Binlog-specific logical timestamps. */</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">    Store for the transaction's commit parent sequence_number.</span></span><br><span class="line"><span class="comment">    The value specifies this transaction dependency with a "parent" transaction.</span></span><br><span class="line"><span class="comment">    The member is assigned, when the transaction is about to commit in binlog to a value of the last committed transaction's sequence_number.</span></span><br><span class="line"><span class="comment">    This and last_committed as numbers are kept ever incremented regardless of binary logs being rotated or when transaction is logged in multiple pieces.</span></span><br><span class="line"><span class="comment">    However the logger to the binary log may convert them according to its specification.</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  int64 last_committed;</span><br></pre></td></tr></table></figure>
+<p>而mysql_bin_log.max_committed_transaction的更新是在group commit提交的时候进行变更。</p>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/" rel="tag"><i class="fa fa-tag"></i>并行复制</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/20/git-%E6%89%8B%E5%86%8C/" rel="next" title="git 手册">
+                <i class="fa fa-chevron-left"></i> git 手册
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -455,6 +537,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -475,8 +561,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -557,6 +652,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#并行复制"><span class="nav-number">1.</span> <span class="nav-text">并行复制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#并行复制的流程"><span class="nav-number">1.1.</span> <span class="nav-text">并行复制的流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#group-commit的过程："><span class="nav-number">1.1.1.</span> <span class="nav-text">group commit的过程：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#ordered-commit-的过程"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">ordered commit 的过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#last-committed-amp-amp-sequence-number"><span class="nav-number">1.2.</span> <span class="nav-text">last_committed&amp;&amp;sequence_number</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-sequence-number"><span class="nav-number">1.2.1.</span> <span class="nav-text">1. sequence_number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-last-committed"><span class="nav-number">1.2.2.</span> <span class="nav-text">2. last_committed</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -727,6 +838,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
