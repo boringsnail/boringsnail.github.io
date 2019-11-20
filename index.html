@@ -339,6 +339,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/git%E5%AD%A6%E4%B9%A0/" itemprop="url" rel="index">
+                    <span itemprop="name">git学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,7 +382,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  473 字
+                  471 字
                 </span>
               
 
@@ -399,8 +421,7 @@
       
         
           
-            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>[TOC]</p>
-<h2 id="git-强行pull并覆盖本地的一切"><a href="#git-强行pull并覆盖本地的一切" class="headerlink" title="git - 强行pull并覆盖本地的一切"></a>git - 强行pull并覆盖本地的一切</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master</span><br><span class="line">git reset --hard FETCH_HEAD</span><br><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
+            <h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-强行pull并覆盖本地的一切"><a href="#git-强行pull并覆盖本地的一切" class="headerlink" title="git - 强行pull并覆盖本地的一切"></a>git - 强行pull并覆盖本地的一切</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master</span><br><span class="line">git reset --hard FETCH_HEAD</span><br><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>fetch origin master是拉取远端的提交。<br>然后reset –hard FETCH_HEAD就是把当前分支重置到刚刚拉取下来的远端的头。任何修改都以远端为准。<br>最后可能会残留一些本地新建的文件，所以再用clean -df清除所有本地的不相关的文件和文件夹，一切就OK了。</p>
 </blockquote>
@@ -974,7 +995,25 @@
             
 
             
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
 
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
             
 
           </nav>
