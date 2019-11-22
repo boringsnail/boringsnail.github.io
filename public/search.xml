@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>ghost改表</title>
-    <url>/2019/11/20/ghost%E6%94%B9%E8%A1%A8/</url>
+    <url>/year/11/20/ghost%E6%94%B9%E8%A1%A8/</url>
     <content><![CDATA[<h1 id="ghost-改表的原理"><a href="#ghost-改表的原理" class="headerlink" title="ghost 改表的原理"></a>ghost 改表的原理</h1><h2 id="工作模式及流程"><a href="#工作模式及流程" class="headerlink" title="工作模式及流程"></a>工作模式及流程</h2><p><img src="https://static001.infoq.cn/resource/image/41/e7/4161fbb2207c55d8d5c735b2951155e7.png" alt="ghost 数据流"></p>
 <h3 id="initial-set-up-amp-amp-validation"><a href="#initial-set-up-amp-amp-validation" class="headerlink" title="initial set up &amp;&amp; validation"></a>initial set up &amp;&amp; validation</h3><ol>
 <li><p>连接到从库或主库，确定主库身份</p>
@@ -70,7 +70,7 @@
   </entry>
   <entry>
     <title>并行复制</title>
-    <url>/2019/11/20/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/</url>
+    <url>/year/11/20/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/</url>
     <content><![CDATA[<h1 id="并行复制"><a href="#并行复制" class="headerlink" title="并行复制"></a>并行复制</h1><h2 id="并行复制的流程"><a href="#并行复制的流程" class="headerlink" title="并行复制的流程"></a>并行复制的流程</h2><h3 id="group-commit的过程："><a href="#group-commit的过程：" class="headerlink" title="group commit的过程："></a>group commit的过程：</h3><ol>
 <li>binlog prepare</li>
 <li>InnoDB prepare</li>
@@ -104,7 +104,7 @@
   </entry>
   <entry>
     <title>git 手册</title>
-    <url>/2019/11/20/git-%E6%89%8B%E5%86%8C/</url>
+    <url>/year/11/20/git-%E6%89%8B%E5%86%8C/</url>
     <content><![CDATA[<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><h2 id="git-强行pull并覆盖本地的一切"><a href="#git-强行pull并覆盖本地的一切" class="headerlink" title="git - 强行pull并覆盖本地的一切"></a>git - 强行pull并覆盖本地的一切</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch origin master</span><br><span class="line">git reset --hard FETCH_HEAD</span><br><span class="line">git clean -df</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>fetch origin master是拉取远端的提交。<br>然后reset –hard FETCH_HEAD就是把当前分支重置到刚刚拉取下来的远端的头。任何修改都以远端为准。<br>最后可能会残留一些本地新建的文件，所以再用clean -df清除所有本地的不相关的文件和文件夹，一切就OK了。</p>
@@ -134,7 +134,7 @@
   </entry>
   <entry>
     <title>Hello World</title>
-    <url>/2019/11/15/hello-world/</url>
+    <url>/year/11/15/hello-world/</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
