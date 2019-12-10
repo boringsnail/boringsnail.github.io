@@ -601,7 +601,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  955 字
+                  951 字
                 </span>
               
 
@@ -697,7 +697,7 @@
 <li>gh通过使用原子的，两步阻断来解决这个问题。当一个链接持有锁，另一个尝试去原子的rename。The RENAME is guaranteed to not be executed prematurely by positioning a sentry table which blocks the RENAME operation until gh-ost is satisfied all is in order.（这段翻译吃力啊！！！）</li>
 <li>执行成功，表交换为原子操作的，connections被blocks一段时间；</li>
 <li>如果由于超时或者其他原因而失败了，这种情况下，自然返回到pre-cut-over阶段，original始终保持可访问的。。这会释放pending connections，表再次可写直到下一次attempt cut-over。</li>
-<li>命令行参数–cut-over被支持，默认采用的算法是上述描述的原子操作，也支持twp-step操作，使用FB的非原子算法。推荐使用默认的算法，这在生产环境进行了充分的测试。<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h1 id="ghost-参数含义"><a href="#ghost-参数含义" class="headerlink" title="ghost 参数含义"></a>ghost 参数含义</h1><h2 id="参数含义"><a href="#参数含义" class="headerlink" title="参数含义"></a>参数含义</h2><a href="https://github.com/wing324/helloworld_zh/blob/master/MySQL/gh-ost/GitHub%E5%BC%80%E6%BA%90MySQL%20Online%20DDL%E5%B7%A5%E5%85%B7gh-ost%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90.md" target="_blank" rel="noopener">GitHub开源MySQL Online DDL工具gh-ost参数解析</a><h2 id="线上参数设置"><a href="#线上参数设置" class="headerlink" title="线上参数设置"></a>线上参数设置</h2><h1 id="ghost-与pt-osc-的区别"><a href="#ghost-与pt-osc-的区别" class="headerlink" title="ghost 与pt-osc 的区别"></a>ghost 与pt-osc 的区别</h1><h1 id="ghost-的目前的缺陷bug"><a href="#ghost-的目前的缺陷bug" class="headerlink" title="ghost 的目前的缺陷bug"></a>ghost 的目前的缺陷bug</h1><a href="https://km.sankuai.com/page/157621951" target="_blank" rel="noopener">ghost 的bug汇总</a></li>
+<li>命令行参数–cut-over被支持，默认采用的算法是上述描述的原子操作，也支持twp-step操作，使用FB的非原子算法。推荐使用默认的算法，这在生产环境进行了充分的测试。<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><h1 id="ghost-参数含义"><a href="#ghost-参数含义" class="headerlink" title="ghost 参数含义"></a>ghost 参数含义</h1><h2 id="参数含义"><a href="#参数含义" class="headerlink" title="参数含义"></a>参数含义</h2><a href="https://github.com/wing324/helloworld_zh/blob/master/MySQL/gh-ost/GitHub%E5%BC%80%E6%BA%90MySQL%20Online%20DDL%E5%B7%A5%E5%85%B7gh-ost%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90.md" target="_blank" rel="noopener">GitHub开源MySQL Online DDL工具gh-ost参数解析</a><h2 id="线上参数设置"><a href="#线上参数设置" class="headerlink" title="线上参数设置"></a>线上参数设置</h2><h1 id="ghost-与pt-osc-的区别"><a href="#ghost-与pt-osc-的区别" class="headerlink" title="ghost 与pt-osc 的区别"></a>ghost 与pt-osc 的区别</h1><h1 id="ghost-的目前的缺陷bug"><a href="#ghost-的目前的缺陷bug" class="headerlink" title="ghost 的目前的缺陷bug"></a>ghost 的目前的缺陷bug</h1></li>
 </ul>
 
           
