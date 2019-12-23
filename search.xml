@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>iptables</title>
+    <title>iptables端口封禁</title>
     <url>/year/12/23/iptables%E7%AB%AF%E5%8F%A3%E5%B0%81%E7%A6%81/</url>
     <content><![CDATA[<p>在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。</p>
 <h1 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h1><p>语法<br><code>iptables (选项) (参数)</code></p>

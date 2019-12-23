@@ -91,12 +91,12 @@
 <meta name="description" content="在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。 iptables规则语法iptables (选项) (参数) 选项 12345678910111213141516-t&amp;lt;表&amp;gt;：">
 <meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iptables">
+<meta property="og:title" content="iptables端口封禁">
 <meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;12&#x2F;23&#x2F;iptables%E7%AB%AF%E5%8F%A3%E5%B0%81%E7%A6%81&#x2F;index.html">
 <meta property="og:site_name" content="一只阿布啾">
 <meta property="og:description" content="在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。 iptables规则语法iptables (选项) (参数) 选项 12345678910111213141516-t&amp;lt;表&amp;gt;：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-23T05:36:01.078Z">
+<meta property="og:updated_time" content="2019-12-23T05:37:21.560Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -133,7 +133,7 @@
 
 
 
-  <title>iptables | 一只阿布啾</title>
+  <title>iptables端口封禁 | 一只阿布啾</title>
   
 
 
@@ -341,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iptables</h1>
+          <h1 class="post-title" itemprop="name headline">iptables端口封禁</h1>
         
 
         <div class="post-meta">
