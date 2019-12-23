@@ -2,22 +2,26 @@
 <search>
   <entry>
     <title>iptables</title>
-    <url>/year/12/23/iptables/</url>
+    <url>/year/12/23/iptables%E7%AB%AF%E5%8F%A3%E5%B0%81%E7%A6%81/</url>
     <content><![CDATA[<p>在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。</p>
 <h1 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h1><p>语法<br><code>iptables (选项) (参数)</code></p>
 <p>选项</p>
-<figure class="highlight diff"><table><tr><td class="code"><pre><span class="line"><span class="deletion">-t&lt;表&gt;：指定要操纵的表；</span></span><br><span class="line"><span class="deletion">-A：向规则链中添加条目；</span></span><br><span class="line"><span class="deletion">-D：从规则链中删除条目；</span></span><br><span class="line"><span class="deletion">-i：向规则链中插入条目；</span></span><br><span class="line"><span class="deletion">-R：替换规则链中的条目；</span></span><br><span class="line"><span class="deletion">-L：显示规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-F：清楚规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-Z：清空规则链中的数据包计算器和字节计数器；</span></span><br><span class="line"><span class="deletion">-N：创建新的用户自定义规则链；</span></span><br><span class="line"><span class="deletion">-P：定义规则链中的默认目标；</span></span><br><span class="line"><span class="deletion">-h：显示帮助信息；</span></span><br><span class="line"><span class="deletion">-p：指定要匹配的数据包协议类型；</span></span><br><span class="line"><span class="deletion">-s：指定要匹配的数据包源ip地址；</span></span><br><span class="line"><span class="deletion">-j&lt;目标&gt;：指定要跳转的目标；</span></span><br><span class="line"><span class="deletion">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</span></span><br><span class="line"><span class="deletion">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">-t&lt;表&gt;：指定要操纵的表；</span><br><span class="line">-A：向规则链中添加条目；</span><br><span class="line">-D：从规则链中删除条目；</span><br><span class="line">-i：向规则链中插入条目；</span><br><span class="line">-R：替换规则链中的条目；</span><br><span class="line">-L：显示规则链中已有的条目；</span><br><span class="line">-F：清楚规则链中已有的条目；</span><br><span class="line">-Z：清空规则链中的数据包计算器和字节计数器；</span><br><span class="line">-N：创建新的用户自定义规则链；</span><br><span class="line">-P：定义规则链中的默认目标；</span><br><span class="line">-h：显示帮助信息；</span><br><span class="line">-p：指定要匹配的数据包协议类型；</span><br><span class="line">-s：指定要匹配的数据包源ip地址；</span><br><span class="line">-j&lt;目标&gt;：指定要跳转的目标；</span><br><span class="line">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</span><br><span class="line">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</span><br></pre></td></tr></table></figure>
 <h1 id="iptables命令选项输入顺序"><a href="#iptables命令选项输入顺序" class="headerlink" title="iptables命令选项输入顺序"></a>iptables命令选项输入顺序</h1><p>iptables -t 表名 &lt;-A/I/D/R&gt; 规则链名 [规则号] &lt;-i/o 网卡名&gt; -p 协议名 &lt;-s 源IP/源子网&gt; –sport 源端口 &lt;-d 目标IP/目标子网&gt; –dport 目标端口 -j 动作</p>
 <h2 id="1-表名包括："><a href="#1-表名包括：" class="headerlink" title="1. 表名包括："></a>1. 表名包括：</h2><ul>
 <li>raw：高级功能，如：网址过滤。</li>
 <li>mangle：数据包修改（QOS），用于实现服务质量。</li>
 <li>net：地址转换，用于网关路由器。</li>
-<li>filter：包过滤，用于防火墙规则。<h2 id="2-规则链名包括："><a href="#2-规则链名包括：" class="headerlink" title="2. 规则链名包括："></a>2. 规则链名包括：</h2></li>
+<li>filter：包过滤，用于防火墙规则。</li>
+</ul>
+<h2 id="2-规则链名包括："><a href="#2-规则链名包括：" class="headerlink" title="2. 规则链名包括："></a>2. 规则链名包括：</h2><ul>
 <li>INPUT链：处理输入数据包。</li>
 <li>OUTPUT链：处理输出数据包。</li>
 <li>PORWARD链：处理转发数据包。</li>
 <li>PREROUTING链：用于目标地址转换（DNAT）。</li>
-<li>POSTOUTING链：用于源地址转换（SNAT）。<br>##3. 动作包括：</li>
+<li>POSTOUTING链：用于源地址转换（SNAT）。</li>
+</ul>
+<h2 id="3-动作包括："><a href="#3-动作包括：" class="headerlink" title="3. 动作包括："></a>3. 动作包括：</h2><ul>
 <li>accept：接收数据包。</li>
 <li>DROP：丢弃数据包。</li>
 <li>REDIRECT：重定向、映射、透明代理。</li>

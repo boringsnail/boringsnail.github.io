@@ -92,11 +92,11 @@
 <meta name="keywords" content="网络">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iptables">
-<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;12&#x2F;23&#x2F;iptables&#x2F;index.html">
+<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;12&#x2F;23&#x2F;iptables%E7%AB%AF%E5%8F%A3%E5%B0%81%E7%A6%81&#x2F;index.html">
 <meta property="og:site_name" content="一只阿布啾">
 <meta property="og:description" content="在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。 iptables规则语法iptables (选项) (参数) 选项 12345678910111213141516-t&amp;lt;表&amp;gt;：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-12-23T05:33:23.846Z">
+<meta property="og:updated_time" content="2019-12-23T05:36:01.078Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <link rel="canonical" href="https://boringsnail.github.io/year/12/23/iptables/"/>
+  <link rel="canonical" href="https://boringsnail.github.io/year/12/23/iptables端口封禁/"/>
 
 
 
@@ -324,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boringsnail.github.io/year/12/23/iptables/">
+    <link itemprop="mainEntityOfPage" href="https://boringsnail.github.io/year/12/23/iptables%E7%AB%AF%E5%8F%A3%E5%B0%81%E7%A6%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="boringsnail">
@@ -452,18 +452,22 @@
         <p>在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。</p>
 <h1 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h1><p>语法<br><code>iptables (选项) (参数)</code></p>
 <p>选项</p>
-<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-t&lt;表&gt;：指定要操纵的表；</span></span><br><span class="line"><span class="deletion">-A：向规则链中添加条目；</span></span><br><span class="line"><span class="deletion">-D：从规则链中删除条目；</span></span><br><span class="line"><span class="deletion">-i：向规则链中插入条目；</span></span><br><span class="line"><span class="deletion">-R：替换规则链中的条目；</span></span><br><span class="line"><span class="deletion">-L：显示规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-F：清楚规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-Z：清空规则链中的数据包计算器和字节计数器；</span></span><br><span class="line"><span class="deletion">-N：创建新的用户自定义规则链；</span></span><br><span class="line"><span class="deletion">-P：定义规则链中的默认目标；</span></span><br><span class="line"><span class="deletion">-h：显示帮助信息；</span></span><br><span class="line"><span class="deletion">-p：指定要匹配的数据包协议类型；</span></span><br><span class="line"><span class="deletion">-s：指定要匹配的数据包源ip地址；</span></span><br><span class="line"><span class="deletion">-j&lt;目标&gt;：指定要跳转的目标；</span></span><br><span class="line"><span class="deletion">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</span></span><br><span class="line"><span class="deletion">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">-t&lt;表&gt;：指定要操纵的表；</span><br><span class="line">-A：向规则链中添加条目；</span><br><span class="line">-D：从规则链中删除条目；</span><br><span class="line">-i：向规则链中插入条目；</span><br><span class="line">-R：替换规则链中的条目；</span><br><span class="line">-L：显示规则链中已有的条目；</span><br><span class="line">-F：清楚规则链中已有的条目；</span><br><span class="line">-Z：清空规则链中的数据包计算器和字节计数器；</span><br><span class="line">-N：创建新的用户自定义规则链；</span><br><span class="line">-P：定义规则链中的默认目标；</span><br><span class="line">-h：显示帮助信息；</span><br><span class="line">-p：指定要匹配的数据包协议类型；</span><br><span class="line">-s：指定要匹配的数据包源ip地址；</span><br><span class="line">-j&lt;目标&gt;：指定要跳转的目标；</span><br><span class="line">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</span><br><span class="line">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</span><br></pre></td></tr></table></figure>
 <h1 id="iptables命令选项输入顺序"><a href="#iptables命令选项输入顺序" class="headerlink" title="iptables命令选项输入顺序"></a>iptables命令选项输入顺序</h1><p>iptables -t 表名 &lt;-A/I/D/R&gt; 规则链名 [规则号] &lt;-i/o 网卡名&gt; -p 协议名 &lt;-s 源IP/源子网&gt; –sport 源端口 &lt;-d 目标IP/目标子网&gt; –dport 目标端口 -j 动作</p>
 <h2 id="1-表名包括："><a href="#1-表名包括：" class="headerlink" title="1. 表名包括："></a>1. 表名包括：</h2><ul>
 <li>raw：高级功能，如：网址过滤。</li>
 <li>mangle：数据包修改（QOS），用于实现服务质量。</li>
 <li>net：地址转换，用于网关路由器。</li>
-<li>filter：包过滤，用于防火墙规则。<h2 id="2-规则链名包括："><a href="#2-规则链名包括：" class="headerlink" title="2. 规则链名包括："></a>2. 规则链名包括：</h2></li>
+<li>filter：包过滤，用于防火墙规则。</li>
+</ul>
+<h2 id="2-规则链名包括："><a href="#2-规则链名包括：" class="headerlink" title="2. 规则链名包括："></a>2. 规则链名包括：</h2><ul>
 <li>INPUT链：处理输入数据包。</li>
 <li>OUTPUT链：处理输出数据包。</li>
 <li>PORWARD链：处理转发数据包。</li>
 <li>PREROUTING链：用于目标地址转换（DNAT）。</li>
-<li>POSTOUTING链：用于源地址转换（SNAT）。<br>##3. 动作包括：</li>
+<li>POSTOUTING链：用于源地址转换（SNAT）。</li>
+</ul>
+<h2 id="3-动作包括："><a href="#3-动作包括：" class="headerlink" title="3. 动作包括："></a>3. 动作包括：</h2><ul>
 <li>accept：接收数据包。</li>
 <li>DROP：丢弃数据包。</li>
 <li>REDIRECT：重定向、映射、透明代理。</li>
@@ -708,7 +712,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables规则"><span class="nav-number">1.</span> <span class="nav-text">iptables规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables命令选项输入顺序"><span class="nav-number">2.</span> <span class="nav-text">iptables命令选项输入顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-表名包括："><span class="nav-number">2.1.</span> <span class="nav-text">1. 表名包括：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-规则链名包括："><span class="nav-number">2.2.</span> <span class="nav-text">2. 规则链名包括：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除已有iptables规则"><span class="nav-number">3.1.</span> <span class="nav-text">清除已有iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放指定的端口"><span class="nav-number">3.2.</span> <span class="nav-text">开放指定的端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏蔽IP"><span class="nav-number">3.3.</span> <span class="nav-text">屏蔽IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已添加的iptables规则"><span class="nav-number">3.4.</span> <span class="nav-text">查看已添加的iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除规则"><span class="nav-number">3.5.</span> <span class="nav-text">删除规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份及恢复iptables规则"><span class="nav-number">3.6.</span> <span class="nav-text">备份及恢复iptables规则</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables规则"><span class="nav-number">1.</span> <span class="nav-text">iptables规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables命令选项输入顺序"><span class="nav-number">2.</span> <span class="nav-text">iptables命令选项输入顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-表名包括："><span class="nav-number">2.1.</span> <span class="nav-text">1. 表名包括：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-规则链名包括："><span class="nav-number">2.2.</span> <span class="nav-text">2. 规则链名包括：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-动作包括："><span class="nav-number">2.3.</span> <span class="nav-text">3. 动作包括：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除已有iptables规则"><span class="nav-number">3.1.</span> <span class="nav-text">清除已有iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放指定的端口"><span class="nav-number">3.2.</span> <span class="nav-text">开放指定的端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏蔽IP"><span class="nav-number">3.3.</span> <span class="nav-text">屏蔽IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已添加的iptables规则"><span class="nav-number">3.4.</span> <span class="nav-text">查看已添加的iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除规则"><span class="nav-number">3.5.</span> <span class="nav-text">删除规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份及恢复iptables规则"><span class="nav-number">3.6.</span> <span class="nav-text">备份及恢复iptables规则</span></a></li></ol></li></ol></div>
             
 
           </div>
