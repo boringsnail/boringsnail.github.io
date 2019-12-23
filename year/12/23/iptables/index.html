@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="网络," />
 
 
 
@@ -88,17 +88,16 @@
 
 
 
-<meta name="description" content="ghost 改表的原理工作模式及流程 initial set up &amp;amp;&amp;amp; validation 连接到从库或主库，确定主库身份  提前验证alter语句  验证权限和要修改表的存在性  创建changelog和ghost表  应用alter到ghost表  比较original table和ghost table的结构，在共享列中寻找共享的unique key column，验证外">
+<meta name="description" content="在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。 iptables规则语法iptables (选项) (参数) 选项 12345678910111213141516-t&amp;lt;表&amp;gt;：">
+<meta name="keywords" content="网络">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ghost改表">
-<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;11&#x2F;20&#x2F;ghost%E6%94%B9%E8%A1%A8&#x2F;index.html">
+<meta property="og:title" content="iptables">
+<meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;12&#x2F;23&#x2F;iptables&#x2F;index.html">
 <meta property="og:site_name" content="一只阿布啾">
-<meta property="og:description" content="ghost 改表的原理工作模式及流程 initial set up &amp;amp;&amp;amp; validation 连接到从库或主库，确定主库身份  提前验证alter语句  验证权限和要修改表的存在性  创建changelog和ghost表  应用alter到ghost表  比较original table和ghost table的结构，在共享列中寻找共享的unique key column，验证外">
+<meta property="og:description" content="在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。 iptables规则语法iptables (选项) (参数) 选项 12345678910111213141516-t&amp;lt;表&amp;gt;：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https:&#x2F;&#x2F;static001.infoq.cn&#x2F;resource&#x2F;image&#x2F;41&#x2F;e7&#x2F;4161fbb2207c55d8d5c735b2951155e7.png">
-<meta property="og:updated_time" content="2019-12-10T06:43:20.412Z">
+<meta property="og:updated_time" content="2019-12-23T05:32:40.274Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;static001.infoq.cn&#x2F;resource&#x2F;image&#x2F;41&#x2F;e7&#x2F;4161fbb2207c55d8d5c735b2951155e7.png">
 
 
 
@@ -128,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="https://boringsnail.github.io/year/11/20/ghost改表/"/>
+  <link rel="canonical" href="https://boringsnail.github.io/year/12/23/iptables/"/>
 
 
 
 
 
-  <title>ghost改表 | 一只阿布啾</title>
+  <title>iptables | 一只阿布啾</title>
   
 
 
@@ -325,7 +324,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://boringsnail.github.io/year/11/20/ghost%E6%94%B9%E8%A1%A8/">
+    <link itemprop="mainEntityOfPage" href="https://boringsnail.github.io/year/12/23/iptables/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="boringsnail">
@@ -342,7 +341,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ghost改表</h1>
+          <h1 class="post-title" itemprop="name headline">iptables</h1>
         
 
         <div class="post-meta">
@@ -354,8 +353,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-20T20:13:50+08:00">
-                2019-11-20
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T13:25:53+08:00">
+                2019-12-23
               </time>
             
 
@@ -377,19 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL%E8%B6%8A%E5%AD%A6%E7%BA%A6%E5%B9%B4%E8%BD%BB/" itemprop="url" rel="index">
-                    <span itemprop="name">MySQL越学约年轻</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/MySQL%E8%B6%8A%E5%AD%A6%E7%BA%A6%E5%B9%B4%E8%BD%BB/pt%E5%B7%A5%E5%85%B7%E7%9A%84%E7%A0%94%E7%A9%B6/" itemprop="url" rel="index">
-                    <span itemprop="name">pt工具的研究</span>
+                  <a href="/categories/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" itemprop="url" rel="index">
+                    <span itemprop="name">操作系统</span>
                   </a>
                 </span>
 
@@ -424,7 +412,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  924 字
+                  1.1k 字
                 </span>
               
 
@@ -440,7 +428,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  4 分钟
                 </span>
               
             </div>
@@ -461,65 +449,45 @@
       
 
       
-        <h1 id="ghost-改表的原理"><a href="#ghost-改表的原理" class="headerlink" title="ghost 改表的原理"></a>ghost 改表的原理</h1><h2 id="工作模式及流程"><a href="#工作模式及流程" class="headerlink" title="工作模式及流程"></a>工作模式及流程</h2><p><img src="https://static001.infoq.cn/resource/image/41/e7/4161fbb2207c55d8d5c735b2951155e7.png" alt="ghost 数据流"></p>
-<h3 id="initial-set-up-amp-amp-validation"><a href="#initial-set-up-amp-amp-validation" class="headerlink" title="initial set up &amp;&amp; validation"></a>initial set up &amp;&amp; validation</h3><ol>
-<li><p>连接到从库或主库，确定主库身份</p>
-</li>
-<li><p>提前验证alter语句</p>
-</li>
-<li><p>验证权限和要修改表的存在性</p>
-</li>
-<li><p>创建changelog和ghost表</p>
-</li>
-<li><p>应用alter到ghost表</p>
-</li>
-<li><p>比较original table和ghost table的结构，在共享列中寻找共享的unique key column，验证外键的情况。选择合适的unique key column（一般就是主键，无主键一般选择非空唯一key的column），这是将来chunk the table过程的关键。</p>
-</li>
-<li><p>设置binlog的侦听器，开始监听产生更新的binlog日志事件。</p>
-</li>
-<li><p>向changelog表中注入”good to go” 条目（侦听binlog 的via）</p>
-</li>
-<li><p>开始linstening binlog中对orginnal table的DML操作</p>
-</li>
-<li><p>读orginnal table，选择上述关键key的最大值和最小值</p>
-</li>
-<li><p>频繁的写到change log</p>
-<h3 id="copy-flow"><a href="#copy-flow" class="headerlink" title="copy flow"></a>copy flow</h3><blockquote>
-<p>这部分包含多个活跃的模块，所有的模块都是彼此协调并发执行的。</p>
-</blockquote>
-</li>
-<li><p>设置心跳机制：频繁的写到changelog table（我们认为这种操作代价极小，可以忽略其对负载节流的影响）。</p>
-</li>
-<li><p>不断更新status</p>
-</li>
-<li><p>定期的去检查当前我们设置的节流场景或者提示，一旦发生便出发节流操作。</p>
-</li>
-<li><p>chunk by chunk的派对copy orginnal table 的数据到ghost table</p>
-</li>
-<li><p>阅读binlog DML事件，派对应用的ghost表中</p>
-</li>
-<li><p>没有触发节流的情况下不断的处理copy tasks queue 和apply tasks queue 并顺序应用到ghost表。触发节流限制就suspend</p>
-</li>
-<li><p>当完整的一次row-copy结束后，输出<code>copy all done</code>到changelog</p>
-</li>
-<li><p>当postpone-cut-over-flag-file存在时，退出cut over的执行，保持不断对DML操作的apply</p>
-<h3 id="cut-over-and-completion"><a href="#cut-over-and-completion" class="headerlink" title="cut-over and completion"></a>cut-over and completion</h3></li>
-<li><p>对original表加写锁，保持对于binlog event 的监听获取DML。在copy all done和lock original table是异步执行的非原子操作，所以这中间就存在时间缝隙，随意尽管originl被lock了，但在这个时间缝隙阶段必须保持对original table 上binlog的listening。</p>
-</li>
-<li><p>swapping orginnal table 和ghost table</p>
-</li>
-<li><p>cleanup，收尾阶段，这种实现的方式收尾阶段需要“打扫”的对象很少，主要就是关闭监听，drop 遗留的table。</p>
-<h4 id="cut-over-step"><a href="#cut-over-step" class="headerlink" title="cut-over step"></a>cut-over step</h4></li>
-</ol>
-<ul>
-<li>对于migration来说cut-over是最主要的步骤，在某个时刻隐式的完成original table和ghost table的切换。</li>
-<li>MySQL对表的交换有一定的局限性。虽然支持原子操作，但不允许在一个lock下完成交换操作。</li>
-<li>fackbook的工具OSC文档在“Cut-over phase”节中证明了这一点。fackbook采用了非原子操作：原表被push aside，然后新表被重命名取代原表。在这两者之间的时间间隙中，表是不存在的，查询会失败（虽然原理上时间应该很短，但确实不存在）</li>
-<li>gh通过使用原子的，两步阻断来解决这个问题。当一个链接持有锁，另一个尝试去原子的rename。The RENAME is guaranteed to not be executed prematurely by positioning a sentry table which blocks the RENAME operation until gh-ost is satisfied all is in order.（这段翻译吃力啊！！！）</li>
-<li>执行成功，表交换为原子操作的，connections被blocks一段时间；</li>
-<li>如果由于超时或者其他原因而失败了，这种情况下，自然返回到pre-cut-over阶段，original始终保持可访问的。。这会释放pending connections，表再次可写直到下一次attempt cut-over。</li>
-<li>命令行参数–cut-over被支持，默认采用的算法是上述描述的原子操作，也支持twp-step操作，使用FB的非原子算法。推荐使用默认的算法，这在生产环境进行了充分的测试。<h2 id="参数含义"><a href="#参数含义" class="headerlink" title="参数含义"></a>参数含义</h2><a href="https://github.com/wing324/helloworld_zh/blob/master/MySQL/gh-ost/GitHub%E5%BC%80%E6%BA%90MySQL%20Online%20DDL%E5%B7%A5%E5%85%B7gh-ost%E5%8F%82%E6%95%B0%E8%A7%A3%E6%9E%90.md" target="_blank" rel="noopener">GitHub开源MySQL Online DDL工具gh-ost参数解析</a></li>
+        <p>在部署好kms服务并且设置好自启动后，重启系统然后发现重启后，服务在运行但是无法连接激活。 排查了一段时间后发现iptables阻断了连接，因为规则iptables是即时生效，重启后会还原到你设置之前。需要将规则保存下来，并且在开机的时候将保存下来的规则加载。</p>
+<h1 id="iptables规则"><a href="#iptables规则" class="headerlink" title="iptables规则"></a>iptables规则</h1><p>语法<br><code>iptables (选项) (参数)</code></p>
+<p>选项</p>
+<figure class="highlight diff"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="deletion">-t&lt;表&gt;：指定要操纵的表；</span></span><br><span class="line"><span class="deletion">-A：向规则链中添加条目；</span></span><br><span class="line"><span class="deletion">-D：从规则链中删除条目；</span></span><br><span class="line"><span class="deletion">-i：向规则链中插入条目；</span></span><br><span class="line"><span class="deletion">-R：替换规则链中的条目；</span></span><br><span class="line"><span class="deletion">-L：显示规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-F：清楚规则链中已有的条目；</span></span><br><span class="line"><span class="deletion">-Z：清空规则链中的数据包计算器和字节计数器；</span></span><br><span class="line"><span class="deletion">-N：创建新的用户自定义规则链；</span></span><br><span class="line"><span class="deletion">-P：定义规则链中的默认目标；</span></span><br><span class="line"><span class="deletion">-h：显示帮助信息；</span></span><br><span class="line"><span class="deletion">-p：指定要匹配的数据包协议类型；</span></span><br><span class="line"><span class="deletion">-s：指定要匹配的数据包源ip地址；</span></span><br><span class="line"><span class="deletion">-j&lt;目标&gt;：指定要跳转的目标；</span></span><br><span class="line"><span class="deletion">-i&lt;网络接口&gt;：指定数据包进入本机的网络接口；</span></span><br><span class="line"><span class="deletion">-o&lt;网络接口&gt;：指定数据包要离开本机所使用的网络接口。</span></span><br></pre></td></tr></table></figure>
+<h1 id="iptables命令选项输入顺序"><a href="#iptables命令选项输入顺序" class="headerlink" title="iptables命令选项输入顺序"></a>iptables命令选项输入顺序</h1><p>iptables -t 表名 &lt;-A/I/D/R&gt; 规则链名 [规则号] &lt;-i/o 网卡名&gt; -p 协议名 &lt;-s 源IP/源子网&gt; –sport 源端口 &lt;-d 目标IP/目标子网&gt; –dport 目标端口 -j 动作</p>
+<h2 id="1-表名包括："><a href="#1-表名包括：" class="headerlink" title="1. 表名包括："></a>1. 表名包括：</h2><ul>
+<li>raw：高级功能，如：网址过滤。</li>
+<li>mangle：数据包修改（QOS），用于实现服务质量。</li>
+<li>net：地址转换，用于网关路由器。</li>
+<li>filter：包过滤，用于防火墙规则。<h2 id="2-规则链名包括："><a href="#2-规则链名包括：" class="headerlink" title="2. 规则链名包括："></a>2. 规则链名包括：</h2></li>
+<li>INPUT链：处理输入数据包。</li>
+<li>OUTPUT链：处理输出数据包。</li>
+<li>PORWARD链：处理转发数据包。</li>
+<li>PREROUTING链：用于目标地址转换（DNAT）。</li>
+<li>POSTOUTING链：用于源地址转换（SNAT）。<br>##3. 动作包括：</li>
+<li>accept：接收数据包。</li>
+<li>DROP：丢弃数据包。</li>
+<li>REDIRECT：重定向、映射、透明代理。</li>
+<li>SNAT：源地址转换。</li>
+<li>DNAT：目标地址转换。</li>
+<li>MASQUERADE：IP伪装（NAT），用于ADSL。</li>
+<li>LOG：日志记录。<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1></li>
 </ul>
+<h2 id="清除已有iptables规则"><a href="#清除已有iptables规则" class="headerlink" title="清除已有iptables规则"></a>清除已有iptables规则</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -F</span><br><span class="line">iptables -X</span><br><span class="line">iptables -Z</span><br></pre></td></tr></table></figure>
+<h2 id="开放指定的端口"><a href="#开放指定的端口" class="headerlink" title="开放指定的端口"></a>开放指定的端口</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 127.0.0.1 -d 127.0.0.1 -j ACCEPT               #允许本地回环接口(即运行本机访问本机)</span><br><span class="line">iptables -A INPUT -m state -–state ESTABLISHED,RELATED -j ACCEPT    #允许已建立的或相关连的通行</span><br><span class="line">iptables -A OUTPUT -j ACCEPT         #允许所有本机向外的访问</span><br><span class="line">iptables -A INPUT -p tcp -–dport 22 -j ACCEPT    #允许访问22端口</span><br><span class="line">iptables -A INPUT -p tcp -–dport 80 -j ACCEPT    #允许访问80端口</span><br><span class="line">iptables -A INPUT -p tcp -–dport 21 -j ACCEPT    #允许ftp服务的21端口</span><br><span class="line">iptables -A INPUT -p tcp -–dport 20 -j ACCEPT    #允许FTP服务的20端口</span><br><span class="line">iptables -A INPUT -j reject       #禁止其他未允许的规则访问</span><br><span class="line">iptables -A FORWARD -j REJECT     #禁止其他未允许的规则访问</span><br></pre></td></tr></table></figure>
+<h2 id="屏蔽IP"><a href="#屏蔽IP" class="headerlink" title="屏蔽IP"></a>屏蔽IP</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -s 123.45.6.7 -j DROP       #屏蔽单个IP的命令</span><br><span class="line">iptables -I INPUT -s 123.0.0.0/8 -j DROP      #封整个段即从123.0.0.1到123.255.255.254的命令</span><br><span class="line">iptables -I INPUT -s 124.45.0.0/16 -j DROP    #封IP段即从123.45.0.1到123.45.255.254的命令</span><br><span class="line">iptables -I INPUT -s 123.45.6.0/24 -j DROP    #封IP段即从123.45.6.1到123.45.6.254的命令</span><br></pre></td></tr></table></figure>
+<h2 id="查看已添加的iptables规则"><a href="#查看已添加的iptables规则" class="headerlink" title="查看已添加的iptables规则"></a>查看已添加的iptables规则</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n -v</span><br><span class="line">Chain INPUT (policy DROP 48106 packets, 2690K bytes)</span><br><span class="line">pkts bytes target prot opt in out source destination </span><br><span class="line">5075 589K ACCEPT all -– lo * 0.0.0.0/0 0.0.0.0/0 </span><br><span class="line">191K 90M ACCEPT tcp -– * * 0.0.0.0/0 0.0.0.0/0 tcp dpt:22</span><br><span class="line">1499K 133M ACCEPT tcp -– * * 0.0.0.0/0 0.0.0.0/0 tcp dpt:80</span><br><span class="line">4364K 6351M ACCEPT all -– * * 0.0.0.0/0 0.0.0.0/0 state RELATED,ESTABLISHED</span><br><span class="line">6256 327K ACCEPT icmp -– * * 0.0.0.0/0 0.0.0.0/0</span><br><span class="line"></span><br><span class="line">Chain FORWARD (policy ACCEPT 0 packets, 0 bytes)</span><br><span class="line">pkts bytes target prot opt in out source destination</span><br><span class="line"></span><br><span class="line">Chain OUTPUT (policy ACCEPT 3382K packets, 1819M bytes)</span><br><span class="line">pkts bytes target prot opt in out source destination </span><br><span class="line">5075 589K ACCEPT all -– * lo 0.0.0.0/0 0.0.0.0/0</span><br></pre></td></tr></table></figure>
+
+<h2 id="删除规则"><a href="#删除规则" class="headerlink" title="删除规则"></a>删除规则</h2><p>删除已添加的iptables规则 将所有iptables以序号标记显示，执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -L -n --line-numbers</span><br></pre></td></tr></table></figure>
+<p>比如要删除INPUT里序号为8的规则，执行：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -D INPUT 8</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h2 id="备份及恢复iptables规则"><a href="#备份及恢复iptables规则" class="headerlink" title="备份及恢复iptables规则"></a>备份及恢复iptables规则</h2><p>每次修改完规则后，都需要使用下面这个命令将当前规则从内存保存到文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-save &gt; /root/iptables.conf</span><br></pre></td></tr></table></figure>
+<p>文件位置根据需要可以改。 重启后使用下面这个命令恢复。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables-restore &lt; /root/iptables.conf</span><br></pre></td></tr></table></figure>
+<p>要设置开机自动恢复，在/etc/rc.d/rc.local文件末尾添加上面的恢复命令即可。</p>
 
       
     </div>
@@ -564,6 +532,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag"><i class="fa fa-tag"></i>网络</a>
+          
+        </div>
+      
 
       
       
@@ -573,8 +547,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/year/11/20/%E5%B9%B6%E8%A1%8C%E5%A4%8D%E5%88%B6/" rel="next" title="并行复制">
-                <i class="fa fa-chevron-left"></i> 并行复制
+              <a href="/year/12/06/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/" rel="next" title="清理缓存">
+                <i class="fa fa-chevron-left"></i> 清理缓存
               </a>
             
           </div>
@@ -582,10 +556,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/year/12/06/%E6%B8%85%E7%90%86%E7%BC%93%E5%AD%98/" rel="prev" title="清理缓存">
-                清理缓存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -738,7 +708,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ghost-改表的原理"><span class="nav-number">1.</span> <span class="nav-text">ghost 改表的原理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#工作模式及流程"><span class="nav-number">1.1.</span> <span class="nav-text">工作模式及流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#initial-set-up-amp-amp-validation"><span class="nav-number">1.1.1.</span> <span class="nav-text">initial set up &amp;&amp; validation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#copy-flow"><span class="nav-number">1.1.2.</span> <span class="nav-text">copy flow</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cut-over-and-completion"><span class="nav-number">1.1.3.</span> <span class="nav-text">cut-over and completion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#cut-over-step"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">cut-over step</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数含义"><span class="nav-number">1.2.</span> <span class="nav-text">参数含义</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables规则"><span class="nav-number">1.</span> <span class="nav-text">iptables规则</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#iptables命令选项输入顺序"><span class="nav-number">2.</span> <span class="nav-text">iptables命令选项输入顺序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-表名包括："><span class="nav-number">2.1.</span> <span class="nav-text">1. 表名包括：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-规则链名包括："><span class="nav-number">2.2.</span> <span class="nav-text">2. 规则链名包括：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">3.</span> <span class="nav-text">实例</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清除已有iptables规则"><span class="nav-number">3.1.</span> <span class="nav-text">清除已有iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开放指定的端口"><span class="nav-number">3.2.</span> <span class="nav-text">开放指定的端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#屏蔽IP"><span class="nav-number">3.3.</span> <span class="nav-text">屏蔽IP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看已添加的iptables规则"><span class="nav-number">3.4.</span> <span class="nav-text">查看已添加的iptables规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#删除规则"><span class="nav-number">3.5.</span> <span class="nav-text">删除规则</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#备份及恢复iptables规则"><span class="nav-number">3.6.</span> <span class="nav-text">备份及恢复iptables规则</span></a></li></ol></li></ol></div>
             
 
           </div>
