@@ -456,7 +456,7 @@
       
         
           
-            <p>#mysql系统表<br>四个库</p>
+            <h1 id="mysql系统表"><a href="#mysql系统表" class="headerlink" title="mysql系统表"></a>mysql系统表</h1><p>四个库</p>
 <ul>
 <li>information_schema 数据库元数据信息</li>
 <li>mysql 数据库构建信息</li>
@@ -475,7 +475,7 @@
 <li>show status –显示系统特定资源的信息，例如，正在运行的线程数量</li>
 <li>show errors –显示最后一个执行语句产生的错误</li>
 <li>show warngings –显示最后一个执行语句产生的错误，警告和通知。</li>
-<li>show character set –显示可用字符集信息。<br>##information_schema数据库<br>information_schema数据库框架信息数据库，存储了数据库元数据。<br>元数据是关于数据的数据，如数据库或表名，列的数据类型，或访问权限等。有些时候表述该信息的其他术语包括”数据词典“，”系统目录“。</li>
+<li>show character set –显示可用字符集信息。<h2 id="information-schema数据库"><a href="#information-schema数据库" class="headerlink" title="information_schema数据库"></a>information_schema数据库</h2>information_schema数据库框架信息数据库，存储了数据库元数据。<br>元数据是关于数据的数据，如数据库或表名，列的数据类型，或访问权限等。有些时候表述该信息的其他术语包括”数据词典“，”系统目录“。</li>
 <li>SCHEMATA表：纲要，框架。mysql实例所有数据库的信息。show databases结果取之于此表。</li>
 <li>TABLES表: 所有数据库中表的信息（包括视图），show tables from databaseName的结果取之于此。</li>
 <li>COLUMNS表：表中列的信息。show columns from databaseName.tableName结果取之于此。</li>
@@ -511,7 +511,7 @@
 <li>TABLE_COLLATION –表的字符检验编码集</li>
 <li>CHECKSUM –校验和</li>
 <li>CREATE_OPTIONS –创建选项</li>
-<li>TABLE_COMMENT –表的注释<br>###COLUMNS表<br>表中列的信息。show columns from databaseName.tableName结果取之于此。<br>查找表中的列：<code>select * from information_schema.COLUMNS where TABLE_SCHEMA=&#39;databaseName&#39; and TABLE_NAME=&#39;tableName&#39;</code></li>
+<li>TABLE_COMMENT –表的注释<h3 id="COLUMNS表"><a href="#COLUMNS表" class="headerlink" title="COLUMNS表"></a>COLUMNS表</h3>表中列的信息。show columns from databaseName.tableName结果取之于此。<br>查找表中的列：<code>select * from information_schema.COLUMNS where TABLE_SCHEMA=&#39;databaseName&#39; and TABLE_NAME=&#39;tableName&#39;</code></li>
 <li><em>COLUMNS表的字段*</em></li>
 <li>TABLE_CATALOG –数据表登记目录</li>
 <li>TABLE_SCHEMA –数据表所属的数据库名</li>
@@ -530,7 +530,7 @@
 <li>COLUMN_KEY –关键列[NULL | MUL | PRI]</li>
 <li>EXTRA –额外描述[NULL | ON UPDATE | CURRENT_TIMESTAMP | AUTO_INCREMENT]</li>
 <li>PRIVILEGES –字段操作权限[select | select, insert, update, references]</li>
-<li>COLUMN_COMMENT –字段注释<br>###KEY_COLUMN_USAGE表<br>具有约束的键列信息。<br>获取表键值：<code>SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
+<li>COLUMN_COMMENT –字段注释<h3 id="KEY-COLUMN-USAGE表"><a href="#KEY-COLUMN-USAGE表" class="headerlink" title="KEY_COLUMN_USAGE表"></a>KEY_COLUMN_USAGE表</h3>具有约束的键列信息。<br>获取表键值：<code>SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
 <li><em>KEY_COLUMN_USAGE表字段*</em></li>
 <li>CONSTRAINT_CATALOG –约束登记目录</li>
 <li>CONSTRAINT_SCHEMA –约束所属的数据库名</li>
@@ -543,14 +543,14 @@
 <li>POSITION_IN_UNIQUE_CONSTRAINT –键值所属的字段在唯一约束的位置（若为外键值为1）</li>
 <li>REFERENCED_TABLE_SCHEMA –外键依赖的数据库名（一般与CONSTRAINT_SCHEMA值相同）</li>
 <li>REFERENCED_TABLE_NAME –外键依赖的表名</li>
-<li>REFERENCED_COLUMN_NAME –外键依赖的列名<br>###TABLE_CONSTRAINTS表<br>存储了存在约束的表，以及表的约束类型（主键约束，外键约束，唯一约束，check约束）。<br>查看表的约束：<code>SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
+<li>REFERENCED_COLUMN_NAME –外键依赖的列名<h3 id="TABLE-CONSTRAINTS表"><a href="#TABLE-CONSTRAINTS表" class="headerlink" title="TABLE_CONSTRAINTS表"></a>TABLE_CONSTRAINTS表</h3>存储了存在约束的表，以及表的约束类型（主键约束，外键约束，唯一约束，check约束）。<br>查看表的约束：<code>SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
 <li><em>TABLE_CONSTRAINTS表字段*</em></li>
 <li>CONSTRAINT_CATALOG –约束等级目录</li>
 <li>CONSTRAINT_SCHEMA –约束所属的数据库名</li>
 <li>CONSTRAINT_NAME –约束的名称</li>
 <li>TABLE_SCHEMA –约束依赖表所属的数据库名（一般与CONSTRAINT_SCHEMA值相同）</li>
 <li>TABLE_NAME –约束所属的表名</li>
-<li>CONSTRAINT_TYPE –约束类型[primary key | foreign key | unique | check]<br>###STATISTICS表<br>统计表。表索引的信息。<br>查看表的索引：SELECT * FROM information_schema.STATISTICS WHERE TABLE_SCHEMA=’databaseName’ AND TABLE_NAME=’tableName’</li>
+<li>CONSTRAINT_TYPE –约束类型[primary key | foreign key | unique | check]<h3 id="STATISTICS表"><a href="#STATISTICS表" class="headerlink" title="STATISTICS表"></a>STATISTICS表</h3>统计表。表索引的信息。<br>查看表的索引：SELECT * FROM information_schema.STATISTICS WHERE TABLE_SCHEMA=’databaseName’ AND TABLE_NAME=’tableName’</li>
 <li><em>STATISTICS表字段*</em></li>
 <li>TABLE_CATALOG –数据表登记目录</li>
 <li>TABLE_SCHEMA –索引所属表的数据库名</li>
@@ -566,7 +566,7 @@
 <li>NULLABLE –是否为空[YES | NO]</li>
 <li>INDEX_TYPE –索引的类型，列值全显示为BTREE（平衡树索引）</li>
 <li>COMMENT –索引注释</li>
-<li><em>巧用**<br>查看当前数据库的各IP连接数:<br>`select SUBSTRING_INDEX(host,’:’,1) as ip, count(</em>) from information_schema.processlist group by ip`<br>##mysql数据库<br>由mysql_install_db脚本初始化权限表。<br>##performance_schema数据库<br>数据库的执行。<br>PERFORMANCE_SCHEMA这个功能默认是关闭的。需要设置参数： performance_schema 才可以启动该功能，这个参数是静态参数，只能写在my.cnf 中 不能动态修改。<br>##sys数据库<br>sys_config表：系统配置变量</li>
+<li><em>巧用**<br>查看当前数据库的各IP连接数:<br>`select SUBSTRING_INDEX(host,’:’,1) as ip, count(</em>) from information_schema.processlist group by ip`<h2 id="mysql数据库"><a href="#mysql数据库" class="headerlink" title="mysql数据库"></a>mysql数据库</h2>由mysql_install_db脚本初始化权限表。<h2 id="performance-schema数据库"><a href="#performance-schema数据库" class="headerlink" title="performance_schema数据库"></a>performance_schema数据库</h2>数据库的执行。<br>PERFORMANCE_SCHEMA这个功能默认是关闭的。需要设置参数： performance_schema 才可以启动该功能，这个参数是静态参数，只能写在my.cnf 中 不能动态修改。<h2 id="sys数据库"><a href="#sys数据库" class="headerlink" title="sys数据库"></a>sys数据库</h2>sys_config表：系统配置变量</li>
 </ul>
 
           
