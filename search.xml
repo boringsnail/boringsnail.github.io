@@ -144,6 +144,9 @@
         <category>MySQL越学约年轻</category>
         <category>MySQL元数据</category>
       </categories>
+      <tags>
+        <tag>MySQL元数据</tag>
+      </tags>
   </entry>
   <entry>
     <title>iptables端口封禁</title>
