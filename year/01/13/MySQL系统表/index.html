@@ -88,15 +88,15 @@
 
 
 
-<meta name="description" content="#mysql系统表 四个库  information_schema 数据库元数据信息 mysql 数据库构建信息 performance_schema 数据库执行信息 sys 数据库配置信息  常用系统命令 desc tableName ， describe tableName, show columns from tableName [from databaesName]，show column">
+<meta name="description" content="#mysql系统表四个库  information_schema 数据库元数据信息 mysql 数据库构建信息 performance_schema 数据库执行信息 sys 数据库配置信息常用系统命令 desc tableName ， describe tableName, show columns from tableName [from databaesName]，show columns f">
 <meta name="keywords" content="MySQL元数据">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL系统表">
 <meta property="og:url" content="https:&#x2F;&#x2F;boringsnail.github.io&#x2F;year&#x2F;01&#x2F;13&#x2F;MySQL%E7%B3%BB%E7%BB%9F%E8%A1%A8&#x2F;index.html">
 <meta property="og:site_name" content="一只阿布啾">
-<meta property="og:description" content="#mysql系统表 四个库  information_schema 数据库元数据信息 mysql 数据库构建信息 performance_schema 数据库执行信息 sys 数据库配置信息  常用系统命令 desc tableName ， describe tableName, show columns from tableName [from databaesName]，show column">
+<meta property="og:description" content="#mysql系统表四个库  information_schema 数据库元数据信息 mysql 数据库构建信息 performance_schema 数据库执行信息 sys 数据库配置信息常用系统命令 desc tableName ， describe tableName, show columns from tableName [from databaesName]，show columns f">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-01-13T13:32:49.412Z">
+<meta property="og:updated_time" content="2020-01-13T13:36:28.214Z">
 <meta name="twitter:card" content="summary">
 
 
@@ -460,15 +460,12 @@
       
 
       
-        <p>#mysql系统表</p>
-<p>四个库</p>
+        <p>#mysql系统表<br>四个库</p>
 <ul>
 <li>information_schema 数据库元数据信息</li>
 <li>mysql 数据库构建信息</li>
 <li>performance_schema 数据库执行信息</li>
-<li>sys 数据库配置信息</li>
-</ul>
-<h2 id="常用系统命令"><a href="#常用系统命令" class="headerlink" title="常用系统命令"></a>常用系统命令</h2><ul>
+<li>sys 数据库配置信息<h2 id="常用系统命令"><a href="#常用系统命令" class="headerlink" title="常用系统命令"></a>常用系统命令</h2></li>
 <li>desc tableName ， describe tableName, show columns from tableName [from databaesName]，show columns from databaseName.tableName –表字段信息</li>
 <li>show create table tableName –表创建语句</li>
 <li>show database databaseName –数据库创建语句</li>
@@ -482,10 +479,7 @@
 <li>show status –显示系统特定资源的信息，例如，正在运行的线程数量</li>
 <li>show errors –显示最后一个执行语句产生的错误</li>
 <li>show warngings –显示最后一个执行语句产生的错误，警告和通知。</li>
-<li>show character set –显示可用字符集信息。</li>
-</ul>
-<p>##information_schema数据库<br>information_schema数据库框架信息数据库，存储了数据库元数据。<br>元数据是关于数据的数据，如数据库或表名，列的数据类型，或访问权限等。有些时候表述该信息的其他术语包括”数据词典“，”系统目录“。</p>
-<ul>
+<li>show character set –显示可用字符集信息。<br>##information_schema数据库<br>information_schema数据库框架信息数据库，存储了数据库元数据。<br>元数据是关于数据的数据，如数据库或表名，列的数据类型，或访问权限等。有些时候表述该信息的其他术语包括”数据词典“，”系统目录“。</li>
 <li>SCHEMATA表：纲要，框架。mysql实例所有数据库的信息。show databases结果取之于此表。</li>
 <li>TABLES表: 所有数据库中表的信息（包括视图），show tables from databaseName的结果取之于此。</li>
 <li>COLUMNS表：表中列的信息。show columns from databaseName.tableName结果取之于此。</li>
@@ -500,11 +494,8 @@
 <li>KEY_COLUMN_USAGE表：具有约束的键列。</li>
 <li>ROUTINES表： 关于存储子程序（存储程序和函数）信息。不包含自定义函数。与mysql.proc name像对应。</li>
 <li>VIEWS表：视图信息。必须有show views权限才能查看。</li>
-<li>TRIGGERS表：触发程序信息。必须有super权限才能查看。</li>
-</ul>
-<p>###TABLES表<br>mysql实例所有表的信息。show tables from databaseName的结果取之于此。<br>查找某个数据库的表：<code>SELECT * FROM information_schema.TABLES WHERE TABLE_SCHEMA=&#39;databaseName&#39;</code></p>
-<p><strong>TABLES表的字段</strong></p>
-<ul>
+<li>TRIGGERS表：触发程序信息。必须有super权限才能查看。<h3 id="TABLES表"><a href="#TABLES表" class="headerlink" title="TABLES表"></a>TABLES表</h3>mysql实例所有表的信息。show tables from databaseName的结果取之于此。<br>查找某个数据库的表：<code>SELECT * FROM information_schema.TABLES WHERE TABLE_SCHEMA=&#39;databaseName&#39;</code></li>
+<li><em>TABLES表的字段*</em></li>
 <li>TABLE_CATALOG –数据表登记目录</li>
 <li>TABLE_SCHEMA –数据表所属的数据库名</li>
 <li>TABLE_NAME – 表名称</li>
@@ -524,11 +515,8 @@
 <li>TABLE_COLLATION –表的字符检验编码集</li>
 <li>CHECKSUM –校验和</li>
 <li>CREATE_OPTIONS –创建选项</li>
-<li>TABLE_COMMENT –表的注释</li>
-</ul>
-<p>###COLUMNS表<br>表中列的信息。show columns from databaseName.tableName结果取之于此。<br>查找表中的列：<code>select * from information_schema.COLUMNS where TABLE_SCHEMA=&#39;databaseName&#39; and TABLE_NAME=&#39;tableName&#39;</code></p>
-<p><strong>COLUMNS表的字段</strong></p>
-<ul>
+<li>TABLE_COMMENT –表的注释<br>###COLUMNS表<br>表中列的信息。show columns from databaseName.tableName结果取之于此。<br>查找表中的列：<code>select * from information_schema.COLUMNS where TABLE_SCHEMA=&#39;databaseName&#39; and TABLE_NAME=&#39;tableName&#39;</code></li>
+<li><em>COLUMNS表的字段*</em></li>
 <li>TABLE_CATALOG –数据表登记目录</li>
 <li>TABLE_SCHEMA –数据表所属的数据库名</li>
 <li>TABLE_NAME –所属的表名称</li>
@@ -546,11 +534,8 @@
 <li>COLUMN_KEY –关键列[NULL | MUL | PRI]</li>
 <li>EXTRA –额外描述[NULL | ON UPDATE | CURRENT_TIMESTAMP | AUTO_INCREMENT]</li>
 <li>PRIVILEGES –字段操作权限[select | select, insert, update, references]</li>
-<li>COLUMN_COMMENT –字段注释</li>
-</ul>
-<p>###KEY_COLUMN_USAGE表<br>具有约束的键列信息。<br>获取表键值：<code>SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></p>
-<p><strong>KEY_COLUMN_USAGE表字段</strong></p>
-<ul>
+<li>COLUMN_COMMENT –字段注释<br>###KEY_COLUMN_USAGE表<br>具有约束的键列信息。<br>获取表键值：<code>SELECT * FROM information_schema.KEY_COLUMN_USAGE WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
+<li><em>KEY_COLUMN_USAGE表字段*</em></li>
 <li>CONSTRAINT_CATALOG –约束登记目录</li>
 <li>CONSTRAINT_SCHEMA –约束所属的数据库名</li>
 <li>CONSTRAINT_NAME –约束的名称</li>
@@ -562,21 +547,15 @@
 <li>POSITION_IN_UNIQUE_CONSTRAINT –键值所属的字段在唯一约束的位置（若为外键值为1）</li>
 <li>REFERENCED_TABLE_SCHEMA –外键依赖的数据库名（一般与CONSTRAINT_SCHEMA值相同）</li>
 <li>REFERENCED_TABLE_NAME –外键依赖的表名</li>
-<li>REFERENCED_COLUMN_NAME –外键依赖的列名</li>
-</ul>
-<p>###TABLE_CONSTRAINTS表<br>存储了存在约束的表，以及表的约束类型（主键约束，外键约束，唯一约束，check约束）。<br>查看表的约束：<code>SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></p>
-<p><strong>TABLE_CONSTRAINTS表字段</strong></p>
-<ul>
+<li>REFERENCED_COLUMN_NAME –外键依赖的列名<br>###TABLE_CONSTRAINTS表<br>存储了存在约束的表，以及表的约束类型（主键约束，外键约束，唯一约束，check约束）。<br>查看表的约束：<code>SELECT * FROM information_schema.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA=&#39;databaseName&#39; AND TABLE_NAME=&#39;tableName&#39;</code></li>
+<li><em>TABLE_CONSTRAINTS表字段*</em></li>
 <li>CONSTRAINT_CATALOG –约束等级目录</li>
 <li>CONSTRAINT_SCHEMA –约束所属的数据库名</li>
 <li>CONSTRAINT_NAME –约束的名称</li>
 <li>TABLE_SCHEMA –约束依赖表所属的数据库名（一般与CONSTRAINT_SCHEMA值相同）</li>
 <li>TABLE_NAME –约束所属的表名</li>
-<li>CONSTRAINT_TYPE –约束类型[primary key | foreign key | unique | check]</li>
-</ul>
-<p>###STATISTICS表<br>统计表。表索引的信息。<br>查看表的索引：SELECT * FROM information_schema.STATISTICS WHERE TABLE_SCHEMA=’databaseName’ AND TABLE_NAME=’tableName’</p>
-<p><strong>STATISTICS表字段</strong></p>
-<ul>
+<li>CONSTRAINT_TYPE –约束类型[primary key | foreign key | unique | check]<br>###STATISTICS表<br>统计表。表索引的信息。<br>查看表的索引：SELECT * FROM information_schema.STATISTICS WHERE TABLE_SCHEMA=’databaseName’ AND TABLE_NAME=’tableName’</li>
+<li><em>STATISTICS表字段*</em></li>
 <li>TABLE_CATALOG –数据表登记目录</li>
 <li>TABLE_SCHEMA –索引所属表的数据库名</li>
 <li>TABLE_NAME –索引所属的表名</li>
@@ -591,11 +570,8 @@
 <li>NULLABLE –是否为空[YES | NO]</li>
 <li>INDEX_TYPE –索引的类型，列值全显示为BTREE（平衡树索引）</li>
 <li>COMMENT –索引注释</li>
+<li><em>巧用**<br>查看当前数据库的各IP连接数:<br>`select SUBSTRING_INDEX(host,’:’,1) as ip, count(</em>) from information_schema.processlist group by ip`<br>##mysql数据库<br>由mysql_install_db脚本初始化权限表。<br>##performance_schema数据库<br>数据库的执行。<br>PERFORMANCE_SCHEMA这个功能默认是关闭的。需要设置参数： performance_schema 才可以启动该功能，这个参数是静态参数，只能写在my.cnf 中 不能动态修改。<br>##sys数据库<br>sys_config表：系统配置变量</li>
 </ul>
-<p><strong>巧用</strong><br>查看当前数据库的各IP连接数:<br><code>select SUBSTRING_INDEX(host,&#39;:&#39;,1) as ip, count(*) from information_schema.processlist group by ip</code></p>
-<p>##mysql数据库<br>由mysql_install_db脚本初始化权限表。</p>
-<p>##performance_schema数据库<br>数据库的执行。<br>PERFORMANCE_SCHEMA这个功能默认是关闭的。需要设置参数： performance_schema 才可以启动该功能，这个参数是静态参数，只能写在my.cnf 中 不能动态修改。</p>
-<p>##sys数据库<br>sys_config表：系统配置变量</p>
 
       
     </div>
@@ -816,7 +792,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用系统命令"><span class="nav-number">1.</span> <span class="nav-text">常用系统命令</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常用系统命令"><span class="nav-number">1.</span> <span class="nav-text">常用系统命令</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#TABLES表"><span class="nav-number">1.1.</span> <span class="nav-text">TABLES表</span></a></li></ol></li></ol></div>
             
 
           </div>
