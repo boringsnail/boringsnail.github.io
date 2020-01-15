@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.6k 字
+                  1.9k 字
                 </span>
               
 
@@ -433,7 +433,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -582,10 +582,21 @@
 <li>NULLABLE –是否为空[YES | NO]</li>
 <li>INDEX_TYPE –索引的类型，列值全显示为BTREE（平衡树索引）</li>
 <li>COMMENT –索引注释</li>
-<li><em>巧用**<br>查看当前数据库的各IP连接数:<br>`select SUBSTRING_INDEX(host,’:’,1) as ip, count(</em>) from information_schema.processlist group by ip`</li>
 </ul>
+<p><strong>巧用</strong><br>查看当前数据库的各IP连接数:<br><code>select SUBSTRING_INDEX(host,&#39;:&#39;,1) as ip, count(*) from information_schema.processlist group by ip</code></p>
 <h2 id="mysql数据库"><a href="#mysql数据库" class="headerlink" title="mysql数据库"></a>mysql数据库</h2><p>由mysql_install_db脚本初始化权限表。</p>
 <h2 id="performance-schema数据库"><a href="#performance-schema数据库" class="headerlink" title="performance_schema数据库"></a>performance_schema数据库</h2><p>数据库的执行。<br>PERFORMANCE_SCHEMA这个功能默认是关闭的。需要设置参数： performance_schema 才可以启动该功能，这个参数是静态参数，只能写在my.cnf 中 不能动态修改。</p>
+<h3 id="file-summary-by-event-name-表"><a href="#file-summary-by-event-name-表" class="headerlink" title="file_summary_by_event_name 表"></a>file_summary_by_event_name 表</h3><p><img src="media/15790102300921.jpg" alt="-w1705"><br>图中这一行表示统计的是 redo log 的写入时间，第一列 EVENT_NAME 表示统计的类型<br>接下来的三组数据，显示的是 redo log 操作的时间统计。</p>
+<ul>
+<li>第一组五列，是所有 IO 类型的统计。其中，COUNT_STAR 是所有 IO 的总次数，接下来四列是具体的统计项， 单位是皮秒；前缀 SUM、MIN、AVG、MAX，顾名思义指的就是总和、最小值、平均值和最大值。</li>
+<li>第二组六列，是读操作的统计。最后一列 SUM_NUMBER_OF_BYTES_READ 统计的是，总共从 redo log 里读了多少个字节。</li>
+<li>第三组六列，统计的是写操作。</li>
+<li>最后的第四组数据，是对其他类型数据的统计。在 redo log 里，你可以认为它们就是对 fsync 的统计。</li>
+</ul>
+<p>在 performance_schema 库的 file_summary_by_event_name 表里，binlog 对应的是 event_name = “wait/io/file/sql/binlog”这一行。各个字段的统计逻辑，与 redo log 的各个字段完全相同。</p>
+<p>可以通过 MAX_TIMER 的值来判断数据库是否出问题了。比如，可以设定阈值，单次 IO 请求时间超过 200 毫秒属于异常，然后使用类似下面这条语句作为检测逻辑。</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> event_name,MAX_TIMER_WAIT <span class="keyword">FROM</span> performance_schema.file_summary_by_event_name <span class="keyword">where</span> event_name <span class="keyword">in</span> (<span class="string">'wait/io/file/innodb/innodb_log_file'</span>,<span class="string">'wait/io/file/sql/binlog'</span>) <span class="keyword">and</span> MAX_TIMER_WAIT&gt;<span class="number">200</span>*<span class="number">1000000000</span>;</span><br></pre></td></tr></table></figure>
+
 <h2 id="sys数据库"><a href="#sys数据库" class="headerlink" title="sys数据库"></a>sys数据库</h2><p>sys_config表：系统配置变量</p>
 
           
